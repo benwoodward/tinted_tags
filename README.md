@@ -27,6 +27,21 @@ rails generate tinted_tags:migration
 rake db:migrate
 ```
 
+## Usage
+
+### Model
+
+```ruby
+acts_as_taggable_on
+tinted_tags
+```
+
+### Controller
+
+```ruby
+@tags = Post.tag_counts_on(:tags).order('count desc')
+```
+
 ## Author
 
 * [Ben Woodward](https://github.com/benwoodward)
