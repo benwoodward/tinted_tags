@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     tinted_tags (0.0.1)
+      acts-as-taggable-on (~> 2.3.1)
       rails (>= 3.2.11)
 
 GEM
@@ -34,6 +35,8 @@ GEM
     activesupport (3.2.11)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    acts-as-taggable-on (2.3.3)
+      rails (~> 3.0)
     ammeter (0.2.8)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -114,6 +117,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 2.3.1)
   ammeter
   jquery-rails
   rspec-rails (~> 2.0)

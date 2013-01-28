@@ -16,6 +16,7 @@ inline-css.
 To use it, add it to your Gemfile:
 
 ```ruby
+gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'tinted_tags'
 ```
 
