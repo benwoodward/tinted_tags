@@ -41,5 +41,4 @@ describe "Tag Tinter" do
       t.tint.should eq '#8e8e8e'
     end
   end
-  
 end
