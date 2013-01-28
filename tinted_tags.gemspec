@@ -15,9 +15,10 @@ Gem::Specification.new do |s|
   s.description = "TintedTags is a Rails Gem that extends functionality of ActsAsTaggableOn with the ability to assign colours to tags based upon their usage."
 
   s.files = `git ls-files`.split("\n")
-  s.test_files = Dir["test/**/*"]
+  s.test_files = `git ls-files -- {test,spec}/*`.split("\n")
 
-  s.add_dependency "rails", "~> 3.2.11"
+  s.add_dependency "rails", ">= 3.2.11"
+  s.add_development_dependency 'rspec-rails', '~> 2.0'
 
   s.add_development_dependency "sqlite3"
 end
