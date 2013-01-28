@@ -7,17 +7,17 @@ require "tinted_tags/version"
 Gem::Specification.new do |s|
   s.name        = "tinted_tags"
   s.version     = TintedTags::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of TintedTags."
-  s.description = "TODO: Description of TintedTags."
+  s.platform    = Gem::Platform::RUBY
+  s.authors     = ["Ben Woodward"]
+  s.email       = ["b@benw.me"]
+  s.homepage    = "http://benw.me"
+  s.summary     = "A Rails 3 engine for creating colour-tinted tag clouds."
+  s.description = "TintedTags is a Rails Gem that extends functionality of ActsAsTaggableOn with the ability to assign colours to tags based upon their usage."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = `git ls-files`.split("\n")
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2.11"
-  # s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"
 end
