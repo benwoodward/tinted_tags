@@ -1,5 +1,6 @@
 require "tinted_tags/engine"
 require "tinted_tags/tag_tinter"
+require "view_helpers/view_helpers"
 
 module TintedTags
   def tinted_tags
