@@ -3,3 +3,5 @@ log/*.log
 pkg/
 .DS_Store
 tmp
+spec/dummy/db/*.sqlite3
+spec/dummy/log/*.log
