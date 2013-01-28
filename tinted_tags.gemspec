@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Ben Woodward"]
   s.email       = ["b@benw.me"]
-  s.homepage    = "http://benw.me"
+  s.homepage    = "http://github.com/benwoodward/tinted_tags"
   s.summary     = "A Rails 3 engine for creating colour-tinted tag clouds."
   s.description = "TintedTags is a Rails Gem that extends functionality of ActsAsTaggableOn with the ability to assign colours to tags based upon their usage."
 

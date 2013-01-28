@@ -1,5 +1,6 @@
 .bundle/
 log/*.log
+.gem
 pkg/
 .DS_Store
 tmp
