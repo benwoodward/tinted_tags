@@ -2,16 +2,16 @@ require 'compass'
 
 module TintedTags
   class TagTinter
-    def initialize(col1, col2, options={})
-      @colour1 = col1
-      @colour2 = col2
-      @opts = {tint_strategy: :percentage_of_total_taggings}.merge options
+    def initialize(opts={})
+      @base = opts[:base]
+      @tint = opts[:tint]
+      @strategy = opts[:strategy]
     end
 
     def update_tints
       Post.tag_counts_on(:tags).each do |tag|
         percent = percentage(tag.count)
-        tag.tint = evaluate("mix(#{@colour1}, #{@colour2}, #{percent})")
+        tag.tint = evaluate("mix(#{@base}, #{@tint}, #{percent})")
         tag.save
       end
     end
@@ -19,7 +19,7 @@ module TintedTags
     private
 
     def percentage(count)
-      return percentage_of_total(count) unless @opts[:tint_strategy] == :rated_as_range
+      return percentage_of_total(count) unless @strategy == :rated_as_range
       percentage_within_range(count)
     end
 

@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'tag_tinter'
 
 describe "Tag Tinter" do
 
@@ -16,7 +15,7 @@ describe "Tag Tinter" do
       tags.each do |tag|
         Post.create(title: 'title', tag_list: tag)
       end
-      TagTinter.new('black', 'white').update_tints
+      TintedTags::TagTinter.new(base: 'black', tint: 'white').update_tints
       ActsAsTaggableOn::Tag.first.tint.should eq '#bfbfbf'
     end
 
@@ -25,7 +24,7 @@ describe "Tag Tinter" do
       tags.each do |tag|
         Post.create(title: 'title', tag_list: tag)
       end
-      TagTinter.new('black', 'white').update_tints
+      TintedTags::TagTinter.new(base: 'black', tint: 'white').update_tints
       ActsAsTaggableOn::Tag.first.tint.should eq '#cccccc'
     end
   end
@@ -35,7 +34,7 @@ describe "Tag Tinter" do
       10.times { Post.create(title: 'title', tag_list: 'max') }
       5.times { Post.create(title: 'title', tag_list: 'median') }
       1.times { Post.create(title: 'title', tag_list: 'min') }
-      TagTinter.new('black', 'white', tint_strategy: :rated_as_range).update_tints
+      TintedTags::TagTinter.new(base:'black', tint:'white', strategy: :rated_as_range).update_tints
       # 'median' tag should be 44% (1 being 0%, 10 being 100%)
       t = ActsAsTaggableOn::Tag.where(name: 'median').first
       t.tint.should eq '#8e8e8e'
