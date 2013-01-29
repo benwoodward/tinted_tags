@@ -35,7 +35,7 @@ rake db:migrate
 
 ```ruby
 acts_as_taggable_on
-tinted_tags
+tinted_tags base: '#ffffff', tint: '#000000'
 ```
 
 ### Controller
