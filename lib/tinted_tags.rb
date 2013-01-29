@@ -16,7 +16,7 @@ module TintedTags
       private
 
       def update_tints
-        TagTinter.new(opts).update_tints
+        TagTinter.new(self.class, opts).update_tints
       end
     end
   end

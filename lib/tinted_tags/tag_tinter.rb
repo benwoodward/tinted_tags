@@ -2,14 +2,15 @@ require 'compass'
 
 module TintedTags
   class TagTinter
-    def initialize(opts={})
+    def initialize(klass, opts={})
       @base = opts[:base]
       @tint = opts[:tint]
       @strategy = opts[:strategy]
+      @klass = klass
     end
 
     def update_tints
-      Post.tag_counts_on(:tags).each do |tag|
+      @klass.tag_counts_on(:tags).each do |tag|
         percent = percentage(tag.count)
         tag.tint = evaluate("mix(#{@base}, #{@tint}, #{percent})")
         tag.save
@@ -24,13 +25,13 @@ module TintedTags
     end
 
     def percentage_of_total(count)
-      total = Post.tag_counts_on(:tags).map(&:count).inject(:+)
+      total = @klass.tag_counts_on(:tags).map(&:count).inject(:+)
       ((count * 100) / total).round(2)
     end
 
     def percentage_within_range(count)
-      max = Post.tag_counts_on(:tags).order('count desc').first.count
-      min = Post.tag_counts_on(:tags).order('count desc').last.count
+      max = @klass.tag_counts_on(:tags).order('count desc').first.count
+      min = @klass.tag_counts_on(:tags).order('count desc').last.count
       ((100 * (count-min)) / (max-min)).round(2)
     end
 
